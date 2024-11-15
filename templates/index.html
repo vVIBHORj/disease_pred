@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Disease Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+       
+    <!-- As a heading -->
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1" id="titlehead">Skin Disease Classification</span>
+        
+      </div>
+    </nav>
+    
+    <div class="navbar-brand mb-0 h1" id="subheading">"Identify Skin Conditions Instantly and Accurately"</div>
+    <div class="description">
+        <h3>ABOUT THIS WEBSITE</h3>
+        <div id="big-box">
+            This website leverages the power of Deep Learning by using Convolutional Neural Networks (CNN's) and hence classifies a given image into either
+            of 8 skin diseases, so we got  this dataset on Kaggle and thought to create a CNN and implement it using Flask. These skin diseases are:
+            <div class="lists">
+                <ul>
+                    <li>Cellulitis</li>
+                    <li>Impetigo</li>
+                </ul>
+                <ul>
+                    <li>Athlete-Foot</li>
+                    <li>Nail-Fungus</li>
+                </ul>
+                <ul>
+                    <li>Ringworm</li>
+                    <li>Cutaneous-larva-migrans</li>
+                </ul>
+                <ul>
+                    <li>Chickenpox</li>
+                    <li>Shingles</li>
+                </ul>
+            </div>
+        </div>
+        
+        
+
+    </div>
+    <div class="content" >
+        <form action="/" method="post" enctype="multipart/form-data">
+            <div id="drop-area">
+                <p>Paste your image here or click to upload</p>
+                <input type="file" id="file-input" name="file" accept="image/*" required style="display: none;">
+            </div>
+            <button type="submit">DETECT</button>
+        </form>
+
+        <img id="preview" src="" alt="Image preview">
+
+        {% if prediction %}
+            <div class="result">
+                <h2>Prediction: {{ prediction }}</h2>
+            </div>
+        {% endif %}
+    </div>
+    <footer class="tech"> 
+        <p> TECHNOLOGIES USED:</p>
+        <div id="tech-heading"></div>
+            <div class="tech_stack">
+                <div>Python</div>
+                <div>TensorFlow</div>
+                <div>Flask</div>
+            </div>
+    </footer>
+        
+   
+
+    
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
